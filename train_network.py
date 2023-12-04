@@ -219,7 +219,8 @@ class NetworkTrainer:
         print("preparing accelerator")
         accelerator = train_util.prepare_accelerator(args)
         is_main_process = accelerator.is_main_process
-        print("accelerator.device:", accelerator.device)
+        print("\naccelerator.device:", accelerator.device)
+        print("\naccelerator.is_main_process:", is_main_process)
 
         # mixed precisionに対応した型を用意しておき適宜castする
         weight_dtype, save_dtype = train_util.prepare_dtype(args)
