@@ -33,7 +33,6 @@ class SdxlNetworkTrainer(train_network.NetworkTrainer):
         train_dataset_group.verify_bucket_reso_steps(32)
 
     def load_target_model(self, args, weight_dtype, accelerator):
-        print(accelerator.device)
         (
             load_stable_diffusion_format,
             text_encoder1,
@@ -97,7 +96,6 @@ class SdxlNetworkTrainer(train_network.NetworkTrainer):
             text_encoders[1].to(accelerator.device)
 
     def get_text_cond(self, args, accelerator, batch, tokenizers, text_encoders, weight_dtype):
-        print(accelerator.device)
         if "text_encoder_outputs1_list" not in batch or batch["text_encoder_outputs1_list"] is None:
             input_ids1 = batch["input_ids"]
             input_ids2 = batch["input_ids2"]
