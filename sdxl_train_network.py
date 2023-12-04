@@ -33,6 +33,7 @@ class SdxlNetworkTrainer(train_network.NetworkTrainer):
         train_dataset_group.verify_bucket_reso_steps(32)
 
     def load_target_model(self, args, weight_dtype, accelerator):
+        print(accelerator.device)
         (
             load_stable_diffusion_format,
             text_encoder1,
