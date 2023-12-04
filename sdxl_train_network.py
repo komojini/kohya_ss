@@ -96,6 +96,7 @@ class SdxlNetworkTrainer(train_network.NetworkTrainer):
             text_encoders[1].to(accelerator.device)
 
     def get_text_cond(self, args, accelerator, batch, tokenizers, text_encoders, weight_dtype):
+        print(accelerator.device)
         if "text_encoder_outputs1_list" not in batch or batch["text_encoder_outputs1_list"] is None:
             input_ids1 = batch["input_ids"]
             input_ids2 = batch["input_ids2"]
